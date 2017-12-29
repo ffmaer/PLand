@@ -4,6 +4,8 @@ using System.Collections.Generic;
 
 public class EndlessTerrain : MonoBehaviour {
 
+	const float scale = 10f;
+
 	const float viewerMoveThreshholdForChunkUpdate = 25f;
 	const float sqrViewerMoveThreshholdForChunkUpdate = viewerMoveThreshholdForChunkUpdate * viewerMoveThreshholdForChunkUpdate;
 
@@ -22,7 +24,7 @@ public class EndlessTerrain : MonoBehaviour {
 
 
 	Dictionary<Vector2, TerrainChunk> terrainChunkDictionary = new Dictionary<Vector2, TerrainChunk>();
-	List<TerrainChunk> terrainChunksVisibleLastUpdate = new List<TerrainChunk>();
+	static List<TerrainChunk> terrainChunksVisibleLastUpdate = new List<TerrainChunk>();
 
 	void Start() {
 		mapGenerator = FindObjectOfType<MapGenerator>();
@@ -33,7 +35,7 @@ public class EndlessTerrain : MonoBehaviour {
 	}
 
 	void Update() {
-		viewerPosition = new Vector2 (viewer.position.x, viewer.position.z);
+		viewerPosition = new Vector2 (viewer.position.x, viewer.position.z)/scale;
 		if ((viewerPositionOld - viewerPosition).sqrMagnitude > sqrViewerMoveThreshholdForChunkUpdate) {
 			viewerPositionOld = viewerPosition;
 			UpdateVisibleChunks ();
@@ -57,9 +59,7 @@ public class EndlessTerrain : MonoBehaviour {
 
 				if (terrainChunkDictionary.ContainsKey (viewedChunkCoord)) {
 					terrainChunkDictionary [viewedChunkCoord].UpdateTerrainChunk ();
-					if (terrainChunkDictionary [viewedChunkCoord].IsVisible ()) {
-						terrainChunksVisibleLastUpdate.Add (terrainChunkDictionary [viewedChunkCoord]);
-					}
+
 				} else {
 					terrainChunkDictionary.Add (viewedChunkCoord, new TerrainChunk (viewedChunkCoord, chunkSize, detailLevels, transform, mapMaterial));
 				}
@@ -97,8 +97,9 @@ public class EndlessTerrain : MonoBehaviour {
 			meshRenderer.material = material;
 
 
-			meshObject.transform.position = positionV3;
+			meshObject.transform.position = positionV3 * scale;
  			meshObject.transform.parent = parent;
+			meshObject.transform.localScale = Vector3.one * scale;
 			SetVisible(false);
 
 			lodMeshes = new LODMesh[detailLevels.Length];
@@ -144,7 +145,8 @@ public class EndlessTerrain : MonoBehaviour {
 						}
 					}
 				}
-				
+
+				terrainChunksVisibleLastUpdate.Add (this);
 
 				SetVisible (visible);
 			}
