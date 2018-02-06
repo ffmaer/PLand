@@ -17,3 +17,9 @@
 /Users/ffmaer/PLand/Temp/bin/Debug/Unity.CecilTools.dll
 /Users/ffmaer/PLand/Temp/bin/Debug/Mono.Cecil.Pdb.dll
 /Users/ffmaer/PLand/Temp/bin/Debug/Mono.Cecil.Mdb.dll
+/Users/ffmaer/PLand/Temp/bin/Debug/Assembly-CSharp.dll.mdb
+/Users/ffmaer/PLand/Temp/bin/Debug/Assembly-CSharp.dll
+/Users/ffmaer/PLand/obj/Debug/Assembly-CSharp.dll
+/Users/ffmaer/PLand/obj/Debug/Assembly-CSharp.dll.mdb
+/Users/ffmaer/PLand/Temp/bin/Debug/UnityEngine.VR.dll
+/Users/ffmaer/PLand/Temp/bin/Debug/ICSharpCode.NRefactory.dll
