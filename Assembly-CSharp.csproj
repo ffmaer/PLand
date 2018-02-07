@@ -48,6 +48,7 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\EndlessTerrain.cs" />
      <Compile Include="Assets\Scripts\FalloffGenerator.cs" />
+     <Compile Include="Assets\Scripts\HideOnPlay.cs" />
      <Compile Include="Assets\Scripts\MapDisplay.cs" />
      <Compile Include="Assets\Scripts\MapGenerator.cs" />
      <Compile Include="Assets\Scripts\MeshGenerator.cs" />
@@ -74,6 +75,10 @@
  <Reference Include="UnityEngine.VR">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityVR/RuntimeEditor/UnityEngine.VR.dll</HintPath>
  </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
+      <Project>{8C81195D-0A23-62F3-E7F7-48604424DA6E}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
