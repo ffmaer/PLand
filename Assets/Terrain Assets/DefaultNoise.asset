@@ -13,10 +13,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   autoUpdate: 1
   normalizeMode: 1
-  noiseScale: 21
-  octaves: 2
-  persistence: 0.16
-  lacunarity: 4.91
-  plateauAdjustment: 1.07
-  seed: -2
+  noiseScale: 32.7
+  octaves: 4
+  persistence: 0.19
+  lacunarity: 4.01
+  plateauAdjustment: 1
+  seed: 0
   offset: {x: 0, y: 0}
