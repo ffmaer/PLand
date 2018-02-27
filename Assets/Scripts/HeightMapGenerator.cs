@@ -13,7 +13,7 @@ public class HeightMapGenerator {
 
 		for(int i=0; i<width; i++){
 			for(int j=0; j<height; j++){
-				values [i, j] = heightCurve_threadsafe.Evaluate (values[i,j])*settings.heightMultiplier;
+				values [i, j] *= heightCurve_threadsafe.Evaluate (values[i,j])*settings.heightMultiplier;
 
 				if(values[i,j]>maxValue){
 					maxValue = values [i, j];
@@ -29,12 +29,12 @@ public class HeightMapGenerator {
 
 public struct HeightMap{
 	public readonly float[,] values;
-	public readonly float minHeight;
-	public readonly float maxHeight;
+	public readonly float minValue;
+	public readonly float MaxValue;
 
-	public HeightMap(float[,] values, float minHeight, float maxHeight){
+	public HeightMap(float[,] values, float minValue, float maxValue){
 		this.values = values;
-		this.minHeight = minHeight;
-		this.maxHeight = maxHeight;
+		this.minValue = minValue;
+		this.MaxValue = maxValue;
 	}
 }

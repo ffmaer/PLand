@@ -89,8 +89,8 @@ public class EndlessTerrain : MonoBehaviour {
 
 		MeshCollider meshCollider;
 
-		HeightMap mapData;
-		bool mapDataReceived;
+		HeightMap heightMap;
+		bool heightMapReceived;
 		int previousLODIndex = -1;
 		bool hasSetCollider;
 
@@ -123,19 +123,19 @@ public class EndlessTerrain : MonoBehaviour {
 				}
 			}
 
-			mapGenerator.RequestHeightMap(sampleCenter, OnMapDataReceived);
+			mapGenerator.RequestHeightMap(sampleCenter, OnHeightMapReceived);
 		}
 
-		void OnMapDataReceived(HeightMap mapData){
-			this.mapData = mapData;
-			mapDataReceived = true;
+		void OnHeightMapReceived(HeightMap heightMap){
+			this.heightMap = heightMap;
+			heightMapReceived = true;
 
 			UpdateTerrainChunk ();
 		}
 
 
 		public void UpdateTerrainChunk() {
-			if (mapDataReceived) {
+			if (heightMapReceived) {
 				float viewerDstFromNearestEdge = Mathf.Sqrt (bounds.SqrDistance (viewerPosition));
 
 				bool wasVisible = IsVisible ();
@@ -157,7 +157,7 @@ public class EndlessTerrain : MonoBehaviour {
 							previousLODIndex = lodIndex;
 							meshFilter.mesh = lodMesh.mesh;
 						} else if (!lodMesh.hasRequestedMesh) {
-							lodMesh.RequestMesh (mapData);
+							lodMesh.RequestMesh (heightMap);
 						}
 					}
 
@@ -185,7 +185,7 @@ public class EndlessTerrain : MonoBehaviour {
 
 				if(sqrDstFromViewerToEdge < detailLevels[colliderLODIndex].sqrVisibleDstThreshold){
 					if(!lodMeshes[colliderLODIndex].hasRequestedMesh){
-						lodMeshes [colliderLODIndex].RequestMesh (mapData);
+						lodMeshes [colliderLODIndex].RequestMesh (heightMap);
 					}
 				}
 
@@ -225,9 +225,9 @@ public class EndlessTerrain : MonoBehaviour {
 			updateCallback ();
 		}
 
-		public void RequestMesh(HeightMap mapData){
+		public void RequestMesh(HeightMap heightMap){
 			hasRequestedMesh = true;
-			mapGenerator.RequestMeshData(mapData, lod, OnMeshDataReceived);
+			mapGenerator.RequestMeshData(heightMap, lod, OnMeshDataReceived);
 		}
 	}
 

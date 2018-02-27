@@ -58,8 +58,10 @@ public static class Noise {
 
 				noiseMap [x, y] = noiseHeight;
 
-				float normalizedHeight = (noiseMap [x, y] + 1) / 2 / maxPossibleHeight*settings.plateauAdjustment;
-				noiseMap [x, y] = Mathf.Clamp(normalizedHeight,0,int.MaxValue);
+				if (settings.normalizeMode == NormalizeMode.Global) {
+					float normalizedHeight = (noiseMap [x, y] + 1) / (maxPossibleHeight / 0.9f);
+					noiseMap [x, y] = Mathf.Clamp (normalizedHeight, 0, int.MaxValue);
+				}
 			}
 		}
 		if (settings.normalizeMode == NormalizeMode.local) {
@@ -83,7 +85,6 @@ public class NoiseSettings{
 	[Range(0,1)]
 	public float persistance = 0.19f;
 	public float lacunarity = 4.01f;
-	public float plateauAdjustment = 1f;
 
 	public int seed;
 	public Vector2 offset;
@@ -93,6 +94,5 @@ public class NoiseSettings{
 		octaves = Mathf.Max (octaves, 1);
 		lacunarity = Mathf.Max (lacunarity,1);
 		persistance = Mathf.Clamp01 (persistance);
-		plateauAdjustment = Mathf.Max (plateauAdjustment,1);
 	}
 }

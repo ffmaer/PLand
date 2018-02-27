@@ -13,16 +13,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   autoUpdate: 1
   noiseSettings:
-    normalizeMode: 0
-    scale: 32.7
+    normalizeMode: 1
+    scale: 34.74
     octaves: 4
-    persistance: 0.19
-    lacunarity: 4.01
-    plateauAdjustment: 1
+    persistance: 0.189
+    lacunarity: 5.28
     seed: 0
     offset: {x: 0, y: 0}
   useFalloff: 0
-  heightMultiplier: 150
+  heightMultiplier: 68.7
   heightCurve:
     serializedVersion: 2
     m_Curve:
@@ -33,16 +32,22 @@ MonoBehaviour:
       outSlope: 0
       tangentMode: 0
     - serializedVersion: 2
-      time: 0.50029033
-      value: 0.061495125
+      time: 0.4866285
+      value: 0.08007232
       inSlope: 0
       outSlope: 0
       tangentMode: 0
     - serializedVersion: 2
-      time: 1
-      value: 1
-      inSlope: 2
-      outSlope: 2
+      time: 0.67617035
+      value: 0.5921029
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 0.9549254
+      value: 0.9972022
+      inSlope: 0
+      outSlope: 0
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
