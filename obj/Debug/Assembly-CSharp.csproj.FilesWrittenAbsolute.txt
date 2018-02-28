@@ -23,3 +23,5 @@
 /Users/ffmaer/PLand/obj/Debug/Assembly-CSharp.dll.mdb
 /Users/ffmaer/PLand/Temp/bin/Debug/UnityEngine.VR.dll
 /Users/ffmaer/PLand/Temp/bin/Debug/ICSharpCode.NRefactory.dll
+/Users/ffmaer/PLand/Temp/bin/Debug/Assembly-CSharp-firstpass.dll
+/Users/ffmaer/PLand/Temp/bin/Debug/Assembly-CSharp-firstpass.dll.mdb
