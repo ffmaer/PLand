@@ -1,7 +1,7 @@
-# PLand
+# StoryLand
 
-Procedural Landmass Generation
+Where you can pick up stories on the land.
 
 My First Unity Project
 
-Based on the tutorial: https://github.com/SebLague/Procedural-Landmass-Generation
+Based on SebLague's Procedural Landmass Generation tutorial: https://github.com/SebLague/Procedural-Landmass-Generation
